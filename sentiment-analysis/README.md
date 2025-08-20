@@ -54,13 +54,14 @@ Predict new data:
 bash
 
 python bulk_predict.py real_test.csv
-This will give you predicted sentiments for your test data.
+This will give  predicted sentiments for  test data.
 
 Visualization
 Chart: visuals/chart.png — shows the model’s performance in a simple visual way.
 
 License
 This project is open for anyone to use and learn from.
+
 
 
 
