@@ -63,5 +63,5 @@ License
 This project is open for anyone to use and learn from.
 
 
-Copy
-Edit
+
+
