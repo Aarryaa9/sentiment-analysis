@@ -1,21 +1,20 @@
 import pickle
 
-# Load the saved model and vectorizer
 with open("model.pkl", "rb") as f:
     model = pickle.load(f)
 
 with open("vectorizer.pkl", "rb") as f:
     vectorizer = pickle.load(f)
 
-# Ask user for input
+print("Sentiment Analyzer is ready. Type your sentences below.")
+print("(Type 'exit' anytime to stop)\n")
+
 while True:
-    text = input("\nEnter a sentence to analyze sentiment (or type 'exit' to quit): ")
-    if text.lower() == "exit":
+    user_input = input("Enter a sentence: ")
+    if user_input.strip().lower() == "exit":
+        print("\nExiting... Goodbye!")
         break
 
-    # Convert text to features
-    text_vec = vectorizer.transform([text])
-
-    # Predict sentiment
-    prediction = model.predict(text_vec)[0]
-    print(f" Sentiment: {prediction}")
+    text_features = vectorizer.transform([user_input])
+    predicted_sentiment = model.predict(text_features)[0]
+    print(f"Sentiment detected: {predicted_sentiment}\n")
