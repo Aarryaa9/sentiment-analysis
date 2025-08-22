@@ -12,17 +12,17 @@ df = pd.read_csv("data.csv")
 df.columns = df.columns.str.strip()
 print("Columns in CSV:", df.columns.tolist())
 
-# im splitting dataset
+# splitting dataset
 X_train, X_test, y_train, y_test = train_test_split(
     df["text"], df["label"], test_size=0.2, random_state=42
 )
 
-# im vectorizing text
+#  vectorizing text
 vectorizer = TfidfVectorizer(stop_words="english", lowercase=True, max_features=5000)
 X_train_vec = vectorizer.fit_transform(X_train)
 X_test_vec = vectorizer.transform(X_test)
 
-# im defining models
+#  defining models
 models = {
     "Naive Bayes": MultinomialNB(),
     "Logistic Regression": LogisticRegression(max_iter=1000),
@@ -32,7 +32,7 @@ models = {
 best_model = None
 best_acc = 0
 
-# im training and evaluating models
+#  training and evaluating models
 for name, model in models.items():
     print(f"\nTraining {name}...")
     model.fit(X_train_vec, y_train)
