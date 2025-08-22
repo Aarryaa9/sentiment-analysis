@@ -44,7 +44,7 @@ while os.path.exists(output_file):
         output_file = base_output_file.replace(".csv", f"_{counter}.csv")
         counter += 1
 
-# im saving results
+# saving results
 df.to_csv(output_file, index=False)
 print(f"Results saved in {output_file}")
 
@@ -65,7 +65,7 @@ plt.title("Sentiment Counts")
 plt.ylabel("Number of Posts")
 plt.show()
 
-# im generating wordclouds
+#  generating wordclouds
 for sentiment in df["predicted_sentiment"].unique():
     text_data = " ".join(df[df["predicted_sentiment"] == sentiment]["text"].astype(str))
     if text_data.strip():
